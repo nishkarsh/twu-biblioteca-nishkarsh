@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2a355ef-1ae8-48ef-ba5c-5ee5dde65418" name="Default" comment="" />
+    <list default="true" id="b2a355ef-1ae8-48ef-ba5c-5ee5dde65418" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/Biblioteca/com/twu/biblioteca/ExampleTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Biblioteca/com/twu/biblioteca/BibliotecaApp.class" afterPath="$PROJECT_DIR$/out/production/Biblioteca/com/twu/biblioteca/BibliotecaApp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Biblioteca.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,17 +36,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ExampleTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
+      <file leaf-file-name="BibliotecaApp.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27576196" vertical-offset="0" max-vertical-offset="689">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.50560224" vertical-offset="0" max-vertical-offset="714">
+              <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Book.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Book.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="399">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BibliotecaTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+      </list>
+    </option>
   </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
@@ -157,10 +197,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
+    <property name="LayoutCode.rearrangeEntriesXML" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.twu.biblioteca" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/.idea" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.ExampleTest">
@@ -444,6 +489,9 @@
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b2a355ef-1ae8-48ef-ba5c-5ee5dde65418" name="Default" comment="" />
@@ -451,16 +499,36 @@
       <option name="number" value="Default" />
       <updated>1420859829726</updated>
       <workItem from="1420859832845" duration="123000" />
-      <workItem from="1420872549776" duration="45000" />
+      <workItem from="1420872549776" duration="679000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168000" />
+    <option name="totallyTimeSpent" value="802000" />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="40" y="22" width="1400" height="834" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -480,7 +548,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2496318" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2496318" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32941177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -516,21 +584,239 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="304">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5742297" vertical-offset="1129" max-vertical-offset="1843">
+          <caret line="695" column="16" selection-start-line="695" selection-start-column="16" selection-end-line="695" selection-end-column="16" />
+          <folding>
+            <element signature="n#component#1;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#2;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#4;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#5;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#favorites_list#0;n#component#5;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#6;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#7;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#option#0;n#component#7;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#8;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#9;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#10;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#11;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#ConfirmationsSetting#1;n#component#11;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#13;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#property#9;n#component#13;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#property#10;n#component#13;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#16;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#18;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#20;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#todo-panel#0;n#component#20;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#todo-panel#1;n#component#20;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#todo-panel#2;n#component#20;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#0;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#1;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#2;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#3;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#4;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#5;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#6;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#7;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#8;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#9;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#10;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#11;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#12;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#13;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#14;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#15;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#16;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#17;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#18;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#19;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#20;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#21;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#22;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#23;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#24;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#25;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#window_info#26;n#layout#0;n#component#21;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#22;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#option#0;n#component#22;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#option#1;n#component#22;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#23;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#24;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#option#0;n#component#24;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#25;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#26;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#entry#0;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#provider#0;n#entry#0;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#state#0;n#provider#0;n#entry#0;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#caret#0;n#state#0;n#provider#0;n#entry#0;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#entry#1;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#provider#0;n#entry#1;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#state#0;n#provider#0;n#entry#1;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#caret#0;n#state#0;n#provider#0;n#entry#1;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#folding#0;n#state#0;n#provider#0;n#entry#1;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#entry#2;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#provider#0;n#entry#2;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#state#0;n#provider#0;n#entry#2;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#caret#0;n#state#0;n#provider#0;n#entry#2;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#folding#0;n#state#0;n#provider#0;n#entry#2;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#entry#3;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#provider#0;n#entry#3;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#state#0;n#provider#0;n#entry#3;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#caret#0;n#state#0;n#provider#0;n#entry#3;n#component#27;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#state#0;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#settings#0;n#state#0;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#splitter-proportions#0;n#settings#0;n#state#0;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#option#0;n#splitter-proportions#0;n#settings#0;n#state#0;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#list#0;n#option#0;n#splitter-proportions#0;n#settings#0;n#state#0;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#state#1;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#settings#0;n#state#1;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#splitter-proportions#0;n#settings#0;n#state#1;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#option#0;n#splitter-proportions#0;n#settings#0;n#state#1;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#list#0;n#option#0;n#splitter-proportions#0;n#settings#0;n#state#1;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#state#2;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#settings#0;n#state#2;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#splitter-proportions#0;n#settings#0;n#state#2;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#option#0;n#splitter-proportions#0;n#settings#0;n#state#2;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#list#0;n#option#0;n#splitter-proportions#0;n#settings#0;n#state#2;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#state#3;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#settings#0;n#state#3;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#splitter-proportions#0;n#settings#0;n#state#3;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#option#0;n#splitter-proportions#0;n#settings#0;n#state#3;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#list#0;n#option#0;n#splitter-proportions#0;n#settings#0;n#state#3;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#state#4;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#settings#0;n#state#4;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#splitter-proportions#0;n#settings#0;n#state#4;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#option#0;n#splitter-proportions#0;n#settings#0;n#state#4;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#list#0;n#option#0;n#splitter-proportions#0;n#settings#0;n#state#4;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#state#5;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#settings#0;n#state#5;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#splitter-proportions#0;n#settings#0;n#state#5;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#option#0;n#splitter-proportions#0;n#settings#0;n#state#5;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#list#0;n#option#0;n#splitter-proportions#0;n#settings#0;n#state#5;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#state#6;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#settings#0;n#state#6;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#splitter-proportions#0;n#settings#0;n#state#6;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#option#0;n#splitter-proportions#0;n#settings#0;n#state#6;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#list#0;n#option#0;n#splitter-proportions#0;n#settings#0;n#state#6;n#states#0;n#component#28;n#project#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="399">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java">
+    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27576196" vertical-offset="0" max-vertical-offset="689">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50560224" vertical-offset="0" max-vertical-offset="714">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>biblioteca</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
