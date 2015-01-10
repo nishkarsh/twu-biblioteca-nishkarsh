@@ -12,10 +12,12 @@ public class BibliotecaApp {
     }
 
     public String getBookList() {
-        StringBuffer bookList = new StringBuffer();
+        StringBuilder bookList = new StringBuilder();
+
         for (Book book : books) {
             bookList.append(book.getDetails());
         }
+
         return bookList.toString();
     }
 

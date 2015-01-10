@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -42,7 +41,6 @@ public class BibliotecaTest {
     public void checkIfBookListingCorrect() {
         String books = "Head First Java\tBert Bates, Kathy Sierra\tJanuary 1, 2004\n"+
                 "My Story\tNishkarsh Sharma\tJanuary 30, 2006\n";
-
         assertEquals(books, bibliotecaApp.getBookList());
     }
 }

@@ -12,6 +12,6 @@ public class Book {
     }
 
     public String getDetails() {
-        return this.name+"\t"+this.author+"\t"+this.date+"\n";
+        return String.format("%-30s | %-30s | %-30s\n", this.name, this.author, this.date);
     }
 }
