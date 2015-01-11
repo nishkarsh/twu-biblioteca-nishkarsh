@@ -5,23 +5,17 @@ import java.util.ArrayList;
 
 public class BibliotecaApp {
 
-    private ArrayList<Book> books = new ArrayList<Book>();
+    private BooksManager booksManager;
+
+    public BibliotecaApp(BooksManager booksManager) {
+        this.booksManager = booksManager;
+    }
 
     public void welcomeMessage(PrintStream printStream) {
         printStream.println("Welcome to Biblioteca!");
     }
 
-    public String getBookList() {
-        StringBuilder bookList = new StringBuilder();
-
-        for (Book book : books) {
-            bookList.append(book.getDetails());
-        }
-
-        return bookList.toString();
-    }
-
-    public void addBook(Book book) {
-        books.add(book);
+    public String getBooksList() {
+        return booksManager.getBooksList();
     }
 }
