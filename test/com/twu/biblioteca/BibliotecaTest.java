@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -46,5 +47,25 @@ public class BibliotecaTest {
         booksList += Book.putInColumns("My Story", "Nishkarsh Sharma", "January 30, 2006");
 
         assertEquals(booksList, bibliotecaApp.getBooksList());
+    }
+
+    @Test
+    public void checkIfMenuCreated() {
+        ArrayList<String> menuItems = new ArrayList<String>();
+        menuItems.add("List Books");
+
+        Menu mainMenu = new Menu(menuItems);
+        assertEquals("1. List Books\n", mainMenu.displayMenuItems());
+    }
+
+    @Test
+    public void checkIfMenuOptionAdded() {
+        ArrayList<String> menuItems = new ArrayList<String>();
+        menuItems.add("List Books");
+
+        Menu mainMenu = new Menu(menuItems);
+        mainMenu.addOption("Quit");
+
+        assertEquals("1. List Books\n2. Quit\n", mainMenu.displayMenuItems());
     }
 }
