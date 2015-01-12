@@ -22,8 +22,8 @@ public class BooksManager {
 
     public String checkOut(String bookName) {
         if(isAvailable(bookName)) {
-            checkedOutBooks.add(getBookByName(bookName));
-            availableBooks.remove(getBookByName(bookName));
+            checkedOutBooks.add(getAvailableBookByName(bookName));
+            availableBooks.remove(getAvailableBookByName(bookName));
             return "Thank you! Enjoy the book.\n";
         } else {
             return "That book is not available!\n";
@@ -31,14 +31,36 @@ public class BooksManager {
     }
 
     private boolean isAvailable(String bookName) {
-        return getBookByName(bookName) != null ? true : false;
+        return getAvailableBookByName(bookName) != null ? true : false;
     }
 
-    public Book getBookByName(String bookName) {
+    private boolean isCheckedout(String bookName) {
+        return getCheckeoutBookByName(bookName) != null ? true : false;
+    }
+
+    public Book getAvailableBookByName(String bookName) {
         for (Book book : availableBooks) {
             if(book.getDetails().contains(bookName))
                 return book;
         }
         return null;
+    }
+
+    public Book getCheckeoutBookByName(String bookName) {
+        for (Book book : checkedOutBooks) {
+            if(book.getDetails().contains(bookName))
+                return book;
+        }
+        return null;
+    }
+
+    public String returnBook(String bookName) {
+        if(isCheckedout(bookName)) {
+            availableBooks.add(getCheckeoutBookByName(bookName));
+            checkedOutBooks.remove(getCheckeoutBookByName(bookName));
+            return "Thank you for returning the book.\n";
+        } else {
+            return "That is not a valid book to return.\n";
+        }
     }
 }

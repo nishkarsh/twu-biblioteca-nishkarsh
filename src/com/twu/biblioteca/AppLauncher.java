@@ -24,6 +24,7 @@ public class AppLauncher {
         ArrayList<String> menuItems = new ArrayList<String>();
         menuItems.add("List Books");
         menuItems.add("Checkout Book");
+        menuItems.add("Return Book");
         menuItems.add("Quit");
         Menu mainMenu = new Menu(menuItems);
 
@@ -43,7 +44,7 @@ public class AppLauncher {
                     break;
 
                 case 2:
-                    System.out.println("Enter Book Name: ");
+                    System.out.println("Enter Book Name to Checkout: ");
                     try {
                         String bookName = nameReader.readLine();
                         System.out.println(bibliotecaApp.checkoutBook(bookName));
@@ -53,6 +54,16 @@ public class AppLauncher {
                     break;
 
                 case 3:
+                    System.out.println("Enter Book Name to Return: ");
+                    try {
+                        String bookName = nameReader.readLine();
+                        System.out.println(bibliotecaApp.returnBook(bookName));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+
+                case 4:
                     System.exit(0);
 
                 default:

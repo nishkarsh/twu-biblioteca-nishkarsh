@@ -7,7 +7,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class BibliotecaTest {
@@ -87,5 +86,22 @@ public class BibliotecaTest {
         booksManager.addBook(headFirstJava);
 
         assertEquals("That book is not available!\n", booksManager.checkOut("randomBook"));
+    }
+
+    @Test
+    public void checkIfSuccessfulReturn() {
+        Book headFirstJava = new Book("Head First Java", "Bert Bates, Kathy Sierra", "January 1, 2004");
+
+        booksManager.addBook(headFirstJava);
+
+        bibliotecaApp.checkoutBook("Head First Java");
+
+        assertEquals("Thank you for returning the book.\n", bibliotecaApp.returnBook("Head First Java"));
+    }
+
+    @Test
+    public void checkIfUnsuccessfulReturn() {
+
+        assertEquals("That is not a valid book to return.\n", booksManager.returnBook("Random Book"));
     }
 }
