@@ -17,4 +17,8 @@ public class BibliotecaApp {
     public String getBooksList() {
         return booksManager.getBooksList();
     }
+
+    public String checkoutBook(String bookName) {
+        return booksManager.checkOut(bookName);
+    }
 }

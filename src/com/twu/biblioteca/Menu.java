@@ -14,7 +14,7 @@ public class Menu {
         menuItems.add(option);
     }
 
-    public String displayMenuItems() {
+    public String getMenuItemsList() {
         String menuItemsList = new String();
         int menuItemNumber = 1;
 

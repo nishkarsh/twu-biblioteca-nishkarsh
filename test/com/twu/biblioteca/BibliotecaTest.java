@@ -7,6 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class BibliotecaTest {
@@ -55,7 +56,7 @@ public class BibliotecaTest {
         menuItems.add("List Books");
 
         Menu mainMenu = new Menu(menuItems);
-        assertEquals("1. List Books\n", mainMenu.displayMenuItems());
+        assertEquals("1. List Books\n", mainMenu.getMenuItemsList());
     }
 
     @Test
@@ -66,6 +67,25 @@ public class BibliotecaTest {
         Menu mainMenu = new Menu(menuItems);
         mainMenu.addOption("Quit");
 
-        assertEquals("1. List Books\n2. Quit\n", mainMenu.displayMenuItems());
+        assertEquals("1. List Books\n2. Quit\n", mainMenu.getMenuItemsList());
+    }
+
+    @Test
+    public void checkIfSuccessfulCheckout() {
+        Book headFirstJava = new Book("Head First Java", "Bert Bates, Kathy Sierra", "January 1, 2004");
+        Book myStory = new Book("My Story", "Nishkarsh Sharma", "January 30, 2006");
+
+        booksManager.addBook(headFirstJava);
+        booksManager.addBook(myStory);
+
+        assertEquals("Thank you! Enjoy the book.\n", booksManager.checkOut("Head First Java"));
+    }
+
+    @Test
+    public void checkIfUnsuccessfulCheckout() {
+        Book headFirstJava = new Book("Head First Java", "Bert Bates, Kathy Sierra", "January 1, 2004");
+        booksManager.addBook(headFirstJava);
+
+        assertEquals("That book is not available!\n", booksManager.checkOut("randomBook"));
     }
 }
