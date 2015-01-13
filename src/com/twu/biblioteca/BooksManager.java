@@ -6,6 +6,11 @@ public class BooksManager {
     private ArrayList<Book> availableBooks = new ArrayList<Book>();
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
 
+    public BooksManager() {
+        availableBooks.add(new Book("Head First Java", "Bert Bates, Kathy Sierra", "January 1, 2004"));
+        availableBooks.add(new Book("My Story", "Nishkarsh Sharma", "January 30, 2006"));
+    }
+
     public String getBooksList() {
         StringBuilder bookList = new StringBuilder();
 
@@ -14,10 +19,6 @@ public class BooksManager {
         }
 
         return bookList.toString();
-    }
-
-    public void addBook(Book book) {
-        availableBooks.add(book);
     }
 
     public String checkOut(String bookName) {
@@ -31,14 +32,14 @@ public class BooksManager {
     }
 
     private boolean isAvailable(String bookName) {
-        return getAvailableBookByName(bookName) != null ? true : false;
+        return getAvailableBookByName(bookName) != null;
     }
 
     private boolean isCheckedout(String bookName) {
-        return getCheckeoutBookByName(bookName) != null ? true : false;
+        return getCheckedoutBookByName(bookName) != null;
     }
 
-    public Book getAvailableBookByName(String bookName) {
+    private Book getAvailableBookByName(String bookName) {
         for (Book book : availableBooks) {
             if(book.getDetails().contains(bookName))
                 return book;
@@ -46,7 +47,7 @@ public class BooksManager {
         return null;
     }
 
-    public Book getCheckeoutBookByName(String bookName) {
+    private Book getCheckedoutBookByName(String bookName) {
         for (Book book : checkedOutBooks) {
             if(book.getDetails().contains(bookName))
                 return book;
@@ -56,8 +57,8 @@ public class BooksManager {
 
     public String returnBook(String bookName) {
         if(isCheckedout(bookName)) {
-            availableBooks.add(getCheckeoutBookByName(bookName));
-            checkedOutBooks.remove(getCheckeoutBookByName(bookName));
+            availableBooks.add(getCheckedoutBookByName(bookName));
+            checkedOutBooks.remove(getCheckedoutBookByName(bookName));
             return "Thank you for returning the book.\n";
         } else {
             return "That is not a valid book to return.\n";
