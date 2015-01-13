@@ -33,7 +33,7 @@ public class BibliotecaApp {
 
             int option = inputScanner.nextInt();
             if(itemsMap.isValid(option))
-                itemsMap.getMenuItem(option).select();
+                itemsMap.getMenuItem(option).select(System.in, System.out);
             else
                 System.out.println("Select a valid option!");
         }
