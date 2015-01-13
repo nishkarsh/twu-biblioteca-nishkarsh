@@ -1,17 +1,18 @@
 package com.twu.biblioteca;
 
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class BibliotecaLauncher {
+public class BibliotecaApp {
 
-    public static void welcomeMessage() {
-        System.out.println("Welcome to Biblioteca!");
+    public static void welcomeMessage(PrintStream stream) {
+        stream.println("Welcome to Biblioteca!");
     }
 
     public static void main(String[] args) {
 
-        welcomeMessage();
+        welcomeMessage(System.out);
 
         HashMap<Integer, MenuItem> menuItemsMap = new HashMap<Integer, MenuItem>();
         menuItemsMap.put(1, MenuItem.LIST_BOOKS);

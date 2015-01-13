@@ -11,47 +11,41 @@ public class BooksManager {
         availableBooks.add(new Book("My Story", "Nishkarsh Sharma", "January 30, 2006"));
     }
 
-    public String getBooksList() {
-        StringBuilder bookList = new StringBuilder();
-
-        for (Book book : availableBooks) {
-            bookList.append(book.getDetails());
-        }
-
-        return bookList.toString();
+    public ArrayList<Book> getBooksList() {
+        return availableBooks;
     }
 
-    public String checkOut(String bookName) {
+    public boolean checkOut(String bookName) {
         if(isAvailable(bookName)) {
             checkedOutBooks.add(getAvailableBookByName(bookName));
             availableBooks.remove(getAvailableBookByName(bookName));
-            return "Thank you! Enjoy the book.\n";
+            return true;
         } else {
-            return "That book is not available!\n";
+            return false;
         }
     }
 
-    public String returnBook(String bookName) {
+    public boolean returnBook(String bookName) {
         if(isCheckedout(bookName)) {
             availableBooks.add(getCheckedoutBookByName(bookName));
             checkedOutBooks.remove(getCheckedoutBookByName(bookName));
-            return "Thank you for returning the book.\n";
+            return true;
         } else {
-            return "That is not a valid book to return.\n";
+            return false;
         }
     }
 
-    private boolean isAvailable(String bookName) {
+    public boolean isAvailable(String bookName) {
         return getAvailableBookByName(bookName) != null;
     }
 
-    private boolean isCheckedout(String bookName) {
+    public boolean isCheckedout(String bookName) {
         return getCheckedoutBookByName(bookName) != null;
     }
 
     private Book getAvailableBookByName(String bookName) {
         for (Book book : availableBooks) {
-            if(book.getDetails().contains(bookName))
+            if(bookName.equals(book.getName()))
                 return book;
         }
         return null;
@@ -59,7 +53,7 @@ public class BooksManager {
 
     private Book getCheckedoutBookByName(String bookName) {
         for (Book book : checkedOutBooks) {
-            if(book.getDetails().contains(bookName))
+            if(bookName.equals(book.getName()))
                 return book;
         }
         return null;

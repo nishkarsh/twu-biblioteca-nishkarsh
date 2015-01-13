@@ -9,7 +9,10 @@ public enum MenuItem {
     LIST_BOOKS(){
         @Override
         public void select() {
-            System.out.println("Books List:\n" + booksManager.getBooksList());
+            System.out.println("Books List:\n");
+            for (Book book : booksManager.getBooksList()) {
+                System.out.println(String.format("%-30s %-30s %-30s", book.getName(), book.getAuthor(), book.getDatePublished()));
+            }
         }
     },
     CHECKOUT_BOOK() {
@@ -19,7 +22,13 @@ public enum MenuItem {
             System.out.println("Enter Book Name to Checkout: ");
             try {
                 String bookName = nameReader.readLine();
-                System.out.println(booksManager.checkOut(bookName));
+
+                if(booksManager.checkOut(bookName)) {
+                    System.out.println("Thank you! Enjoy the book");
+                } else {
+                    System.out.println("That book is not available.");
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -32,7 +41,13 @@ public enum MenuItem {
             System.out.println("Enter Book Name to Return: ");
             try {
                 String bookName = nameReader.readLine();
-                System.out.println(booksManager.returnBook(bookName));
+
+                if(booksManager.returnBook(bookName)) {
+                    System.out.println("Thank you for returning the book.");
+                } else {
+                    System.out.println("That is not a valid book to return.");
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

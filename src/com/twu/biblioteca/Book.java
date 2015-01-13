@@ -11,11 +11,15 @@ public class Book {
         this.datePublished = datePublished;
     }
 
-    public String getDetails() {
-        return putInColumns(this.name, this.author, this.datePublished);
+    public String getName() {
+        return name;
     }
 
-     public static String putInColumns(String name, String author, String datePublished) {
-        return String.format("%-30s | %-30s | %-30s\n", name, author, datePublished);
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getDatePublished() {
+        return datePublished;
     }
 }
