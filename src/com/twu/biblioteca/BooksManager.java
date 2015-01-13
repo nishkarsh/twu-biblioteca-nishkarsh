@@ -31,6 +31,16 @@ public class BooksManager {
         }
     }
 
+    public String returnBook(String bookName) {
+        if(isCheckedout(bookName)) {
+            availableBooks.add(getCheckedoutBookByName(bookName));
+            checkedOutBooks.remove(getCheckedoutBookByName(bookName));
+            return "Thank you for returning the book.\n";
+        } else {
+            return "That is not a valid book to return.\n";
+        }
+    }
+
     private boolean isAvailable(String bookName) {
         return getAvailableBookByName(bookName) != null;
     }
@@ -53,15 +63,5 @@ public class BooksManager {
                 return book;
         }
         return null;
-    }
-
-    public String returnBook(String bookName) {
-        if(isCheckedout(bookName)) {
-            availableBooks.add(getCheckedoutBookByName(bookName));
-            checkedOutBooks.remove(getCheckedoutBookByName(bookName));
-            return "Thank you for returning the book.\n";
-        } else {
-            return "That is not a valid book to return.\n";
-        }
     }
 }

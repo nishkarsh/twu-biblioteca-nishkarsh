@@ -5,8 +5,11 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class BibliotecaTest {
 
@@ -60,5 +63,22 @@ public class BibliotecaTest {
     @Test
     public void checkIfUnsuccessfulReturn() {
         assertEquals("That is not a valid book to return.\n", booksManager.returnBook("Random Book"));
+    }
+
+    @Test
+    public void checkIfValidOption() {
+        HashMap<Integer, MenuItem> menuItemsMap = new HashMap<Integer, MenuItem>();
+        menuItemsMap.put(1, MenuItem.LIST_BOOKS);
+        MenuItemsMap itemsMap = new MenuItemsMap(menuItemsMap);
+
+        assertTrue(itemsMap.isValid(1));
+    }
+
+    @Test
+    public void checkIfInvalidOption() {
+        HashMap<Integer, MenuItem> menuItemsMap = new HashMap<Integer, MenuItem>();
+        MenuItemsMap itemsMap = new MenuItemsMap(menuItemsMap);
+
+        assertFalse(itemsMap.isValid(1));
     }
 }
