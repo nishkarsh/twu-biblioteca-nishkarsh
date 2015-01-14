@@ -7,7 +7,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class BibliotecaTest {
+public class BibliotecaAppTest {
 
     @Test
     public void testWelcomeMessage() {

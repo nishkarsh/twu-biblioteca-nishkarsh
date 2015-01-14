@@ -2,11 +2,11 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class BooksManager {
+public class BookManager {
     private ArrayList<Book> availableBooks = new ArrayList<Book>();
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
 
-    public BooksManager() {
+    public BookManager() {
         availableBooks.add(new Book("Head First Java", "Bert Bates, Kathy Sierra", "January 1, 2004"));
         availableBooks.add(new Book("My Story", "Nishkarsh Sharma", "January 30, 2006"));
     }
