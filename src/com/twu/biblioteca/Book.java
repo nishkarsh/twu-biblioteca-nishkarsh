@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Book {
+public class Book extends Item{
     private String name;
     private String author;
     private String datePublished;
@@ -11,6 +11,7 @@ public class Book {
         this.datePublished = datePublished;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -21,5 +22,10 @@ public class Book {
 
     public String getDatePublished() {
         return datePublished;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%-30s %-30s %-30s", name, author, datePublished);
     }
 }

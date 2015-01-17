@@ -12,7 +12,7 @@ public class BibliotecaAppTest {
     @Test
     public void testWelcomeMessage() {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        BibliotecaApp.welcomeMessage(new PrintStream(byteArrayOutputStream));
+        IOManager.welcomeMessage(new PrintStream(byteArrayOutputStream));
         assertEquals("Welcome to Biblioteca!\n", byteArrayOutputStream.toString());
     }
 
