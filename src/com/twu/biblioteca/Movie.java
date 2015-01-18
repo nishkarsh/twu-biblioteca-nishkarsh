@@ -18,18 +18,6 @@ public class Movie extends Item {
         return name;
     }
 
-    public String getYear() {
-        return year;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public String getRating() {
-        return rating;
-    }
-
     @Override
     public String toString() {
         return String.format("%-30s %-30s %-30s %-30s", name, year, director, rating);

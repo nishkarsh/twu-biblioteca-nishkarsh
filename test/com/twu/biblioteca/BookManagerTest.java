@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -19,10 +20,10 @@ public class BookManagerTest {
     public void setUp() {
         headFirstJava = new Book("Head First Java", "Bert Bates, Kathy Sierra", "January 1, 2004");
         myStory = new Book("My Story", "Nishkarsh Sharma", "January 30, 2006");
-        ArrayList<Book> bookList= new ArrayList<Book>();
-        bookList.add(headFirstJava);
-        bookList.add(myStory);
-        bookManager = new BookManager(bookList, new ArrayList<Book>());
+        HashMap<Item, Boolean> bookList= new HashMap<Item, Boolean>();
+        bookList.put(headFirstJava, true);
+        bookList.put(myStory, true);
+        bookManager = new BookManager(bookList);
     }
 
     @Test

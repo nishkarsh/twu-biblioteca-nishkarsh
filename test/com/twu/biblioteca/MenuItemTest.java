@@ -5,7 +5,9 @@ import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import static org.hamcrest.core.Is.is;
@@ -24,19 +26,26 @@ public class MenuItemTest {
     public void setUp() {
         Book headFirstJava = new Book("Head First Java", "Bert Bates, Kathy Sierra", "January 1, 2004");
         Book myStory = new Book("My Story", "Nishkarsh Sharma", "January 30, 2006");
-        ArrayList<Book> bookList= new ArrayList<Book>();
-        bookList.add(headFirstJava);
-        bookList.add(myStory);
-        bookManager = new BookManager(bookList, new ArrayList<Book>());
+        HashMap<Item, Boolean> bookList= new HashMap<Item, Boolean>();
+        bookList.put(headFirstJava, true);
+        bookList.put(myStory, true);
+        bookManager = new BookManager(bookList);
 
         Movie tpoh = new Movie("The Pursuit of HappYness", "2006", "Gabriele Muccino", "7.9");
         Movie castAway = new Movie("Cast Away", "2000", "Robert Zemeckis", "Unrated");
-        ArrayList<Movie> movieList= new ArrayList<Movie>();
-        movieList.add(tpoh);
-        movieList.add(castAway);
-        movieManager = new MovieManager(movieList, new ArrayList<Movie>());
+        HashMap<Item, Boolean> movieList= new HashMap<Item, Boolean>();
+        movieList.put(tpoh, true);
+        movieList.put(castAway, true);
+        movieManager = new MovieManager(movieList);
 
-        HashMap<Integer, MenuItemSelector> menuItemsMap = new HashMap<Integer, MenuItemSelector>();
+        User nishkarsh = new User("537-1253", "something", "Nishkarsh Sharma", "nishkarsh4@gmail.com", "9545655244");
+        User amit = new User("123-4567", "everything", "Amit Singh", "amit55@gmail.com", "9123456775");
+        HashMap<String, User> userList = new HashMap<String, User>();
+        userList.put(nishkarsh.getLibraryNumber(), nishkarsh);
+        userList.put(amit.getLibraryNumber(), amit);
+        LoginManager.initialize(userList);
+
+        HashMap<Integer, MenuItem> menuItemsMap = new HashMap<Integer, MenuItem>();
         menuItemsMap.put(1, new ListMenuItem(bookManager));
         menuItemsMap.put(2, new CheckoutMenuItem(bookManager));
         menuItemsMap.put(3, new ReturnMenuItem(bookManager));
@@ -45,11 +54,11 @@ public class MenuItemTest {
         menuItemsMap.put(6, new ReturnMenuItem(movieManager));
         menuItemsMap.put(7, new QuitMenuItem());
         itemsMap = new MenuItemsMap(menuItemsMap);
-    }
+}
 
     @Test
     public void checkIfValidOption() {
-        HashMap<Integer, MenuItemSelector> menuItemsMap = new HashMap<Integer, MenuItemSelector>();
+        HashMap<Integer, MenuItem> menuItemsMap = new HashMap<Integer, MenuItem>();
         menuItemsMap.put(1, new ListMenuItem(bookManager));
         MenuItemsMap itemsMap = new MenuItemsMap(menuItemsMap);
 
@@ -58,60 +67,83 @@ public class MenuItemTest {
 
     @Test
     public void checkIfInvalidOption() {
-        HashMap<Integer, MenuItemSelector> menuItemsMap = new HashMap<Integer, MenuItemSelector>();
+        HashMap<Integer, MenuItem> menuItemsMap = new HashMap<Integer, MenuItem>();
         MenuItemsMap itemsMap = new MenuItemsMap(menuItemsMap);
 
         assertFalse(itemsMap.isValid(1));
     }
 
     @Test
+    public void testListBookMenuItemForInvalidEntries() {
+        IOManager.setInputStream(new ByteArrayInputStream("My Story".getBytes()));
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        IOManager.setPrintStream(new PrintStream(outputStream));
+        itemsMap.getMenuItem(2).select();
+        itemsMap.getMenuItem(1).select();
+        assertTrue(outputStream.toString().contains("Head First Java"));
+        assertFalse(outputStream.toString().contains("My Story"));
+    }
+
+    @Test
     public void testListBookMenuItem() {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        IOManager.setPrintStream(new PrintStream(outputStream));
         itemsMap.getMenuItem(1).select();
-        assertThat(outputStream.toString(), is(String.format("List:\n\n\n%-30s %-30s %-30s\n%-30s %-30s %-30s\n", "Head First Java", "Bert Bates, Kathy Sierra", "January 1, 2004","My Story", "Nishkarsh Sharma", "January 30, 2006")));
+        assertTrue(outputStream.toString().contains("Head First Java"));
+        assertTrue(outputStream.toString().contains("My Story"));
     }
 
     @Test
     public void testCheckoutMenuItemAgainstAvailableBook() {
-        byte[] input = "Head First Java".getBytes();
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(input);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        IOManager.setInputStream(new ByteArrayInputStream("Head First Java".getBytes()));
+        IOManager.setPrintStream(new PrintStream(outputStream));
         itemsMap.getMenuItem(2).select();
-        assertThat(outputStream.toString(), is("Enter Book Name to Checkout: \n" +
-                "Thank you! Enjoy the book\n"));
+        assertThat(outputStream.toString(), is("Enter the name: \n" +
+                "Thank you! Enjoy the Book\n"));
     }
 
     @Test
     public void testCheckoutMenuItemAgainstNotAvailableBook() {
-        byte[] input = "Random Book".getBytes();
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(input);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        IOManager.setInputStream(new ByteArrayInputStream("Random Book".getBytes()));
+        IOManager.setPrintStream(new PrintStream(outputStream));
         itemsMap.getMenuItem(2).select();
-        assertThat(outputStream.toString(), is("Enter Book Name to Checkout: \n" +
-                "That book is not available.\n"));
+        assertThat(outputStream.toString(), is("Enter the name: \n" +
+                "That Book is not available.\n"));
     }
 
     @Test
     public void testReturnMenuItemForCheckedOutBook() {
-        byte[] input = "Head First Java".getBytes();
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(input);
+        IOManager.setInputStream(new ByteArrayInputStream("Head First Java".getBytes()));
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        IOManager.setPrintStream(new PrintStream(outputStream));
         itemsMap.getMenuItem(2).select();
-        inputStream = new ByteArrayInputStream(input);
+        IOManager.setInputStream(new ByteArrayInputStream("Head First Java".getBytes()));
         itemsMap.getMenuItem(3).select();
-        assertThat(outputStream.toString(), is("Enter Book Name to Checkout: \n" +
-                "Thank you! Enjoy the book\n" +
-                "Enter Book Name to Return: \n" +
-                "Thank you for returning the book.\n"));
+        assertThat(outputStream.toString(), is("Enter the name: \n" +
+                "Thank you! Enjoy the Book\n" +
+                "Enter the name: \n" +
+                "Thank you for returning the Book\n"));
     }
 
     @Test
     public void testReturnMenuItemForInvalidBook() {
-        byte[] input = "Random Book".getBytes();
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(input);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        IOManager.setInputStream(new ByteArrayInputStream("Random Book".getBytes()));
+        IOManager.setPrintStream(new PrintStream(outputStream));
         itemsMap.getMenuItem(3).select();
-        assertThat(outputStream.toString(), is("Enter Book Name to Return: \n" +
-                "That is not a valid book to return.\n"));
+        assertThat(outputStream.toString(), is("Enter the name: \n" +
+                "That is not a valid Book to return.\n"));
+    }
+
+    @Test
+    public void testUserInformationMenuItem() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        IOManager.setInputStream(new ByteArrayInputStream("537-1253".getBytes()));
+        IOManager.setPrintStream(new PrintStream(outputStream));
+        itemsMap.getMenuItem(3).select();
+        IOManager.setInputStream(new ByteArrayInputStream("something".getBytes()));
+        assertTrue(outputStream.toString().contains("Nishkarsh Sharma"));
     }
 }

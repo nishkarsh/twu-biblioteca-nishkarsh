@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class CheckoutMenuItem extends MenuItemSelector{
+public class CheckoutMenuItem extends MenuItem {
 
     private ItemManager itemManager;
 
@@ -10,9 +10,11 @@ public class CheckoutMenuItem extends MenuItemSelector{
 
     @Override
     public void select() {
+        if(!LoginManager.validateSession())
+            return;
         String itemName = IOManager.getItemName();
-        Item item = itemManager.getAvailableItemByName(itemName);
-        boolean err=itemManager.checkOut(item);
-        IOManager.displayCheckoutMessage(err);
+        Item item = itemManager.getItemByName(itemName);
+        boolean checkoutSuccess = itemManager.checkOut(item);
+        IOManager.displayCheckoutMessage(checkoutSuccess, itemManager.itemType());
     }
 }

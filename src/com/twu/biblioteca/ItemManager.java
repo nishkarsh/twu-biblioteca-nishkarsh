@@ -1,69 +1,59 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 abstract public class ItemManager {
 
-    ArrayList<Item> listAvailable = new ArrayList<Item>();
-    ArrayList<Item> listCheckedOut = new ArrayList<Item>();
+    private HashMap<Item, Boolean> items;
+    private HashMap<String, Item> itemIndex;
 
-    public ItemManager(ArrayList<? extends Item> listAvailable, ArrayList<? extends Item> listCheckedOut) {
-        this.listAvailable.addAll(listAvailable);
-        this.listCheckedOut.addAll(listCheckedOut);
+    public ItemManager(HashMap<Item, Boolean> items) {
+        this.items = items;
+
+        itemIndex = new HashMap<String, Item>();
+        for (Item item : items.keySet()) {
+            itemIndex.put(item.getName(), item);
+        }
     }
 
     public ArrayList<Item> getItemList() {
         ArrayList<Item> itemsList = new ArrayList<Item>();
-        for(Item item : listAvailable) {
+        for(Item item : items.keySet()) {
+            if(isAvailable(item))
                 itemsList.add(item);
         }
         return itemsList;
     }
 
-    public boolean isAvailable(Item item) {
-        return listAvailable.contains(item);
-    }
-
-    public boolean isCheckedout(Item item) {
-        return listCheckedOut.contains(item);
-    }
-
     public boolean checkOut(Item item) {
         if(isAvailable(item)) {
-            listCheckedOut.add(item);
-            listAvailable.remove(item);
+            items.put(item, false);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public boolean returnItem(Item item) {
         if(isCheckedout(item)) {
-            listAvailable.add(item);
-            listCheckedOut.remove(item);
+            items.put(item, true);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
-    public Item getAvailableItemByName(String itemName) {
-        for (Item item : listAvailable) {
-            if(itemName.equals(item.getName()))
-                return item;
-        }
-        return null;
+    public Item getItemByName(String itemName) {
+        return itemIndex.get(itemName);
     }
 
-    public Item getCheckedOutItemByName(String itemName) {
-        for (Item item : listCheckedOut) {
-            if(itemName.equals(item.getName()))
-                return item;
-        }
-        return null;
+    public boolean isAvailable(Item item) {
+        return items.containsKey(item) ? items.get(item) : false;
     }
 
+    public boolean isCheckedout(Item item) {
+        return items.containsKey(item) ? !items.get(item) : false;
+    }
 
     abstract public String getHeaders();
+    abstract public String itemType();
 }

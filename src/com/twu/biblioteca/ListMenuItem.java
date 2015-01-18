@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class ListMenuItem extends MenuItemSelector{
+public class ListMenuItem extends MenuItem {
 
     private ItemManager itemManager;
 

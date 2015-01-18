@@ -1,5 +1,5 @@
 package com.twu.biblioteca;
 
-public abstract class MenuItemSelector {
+public abstract class MenuItem {
     abstract public void select();
 }

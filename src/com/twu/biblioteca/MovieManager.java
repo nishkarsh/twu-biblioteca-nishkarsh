@@ -1,14 +1,17 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MovieManager extends ItemManager {
-    public MovieManager(ArrayList<Movie> listAvailable, ArrayList<Movie> listCheckedOut) {
-        super(listAvailable, listCheckedOut);
+    public MovieManager(HashMap<Item, Boolean> movieList) {
+        super(movieList);
     }
 
     @Override
     public String getHeaders() {
         return String.format("%-30s %-30s %-30s %-30s", "Name", "Year", "Director", "Rating");
     }
+
+    @Override
+    public String itemType() { return "Movie"; }
 }

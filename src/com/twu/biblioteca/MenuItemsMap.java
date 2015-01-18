@@ -3,13 +3,13 @@ package com.twu.biblioteca;
 import java.util.HashMap;
 
 public class MenuItemsMap {
-    private HashMap<Integer, MenuItemSelector> menuItemsMap = new HashMap<Integer, MenuItemSelector>();
+    private HashMap<Integer, MenuItem> menuItemsMap = new HashMap<Integer, MenuItem>();
 
-    public MenuItemsMap(HashMap<Integer, MenuItemSelector> menuItemsMap) {
+    public MenuItemsMap(HashMap<Integer, MenuItem> menuItemsMap) {
         this.menuItemsMap = menuItemsMap;
     }
 
-    public MenuItemSelector getMenuItem(int number) {
+    public MenuItem getMenuItem(int number) {
         return menuItemsMap.get(number);
     }
 

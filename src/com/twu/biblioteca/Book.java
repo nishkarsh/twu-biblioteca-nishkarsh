@@ -16,14 +16,6 @@ public class Book extends Item{
         return name;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getDatePublished() {
-        return datePublished;
-    }
-
     @Override
     public String toString() {
         return String.format("%-30s %-30s %-30s", name, author, datePublished);
