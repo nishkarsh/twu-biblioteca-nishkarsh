@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class IOManager {
 
@@ -17,8 +18,8 @@ public class IOManager {
         IOManager.printStream = printStream;
     }
 
-    public static void welcomeMessage(PrintStream stream) {
-        stream.println("Welcome to Biblioteca!");
+    public static void welcomeMessage() {
+        printStream.println("Welcome to Biblioteca!");
     }
 
     public static void displayMenu() {
@@ -104,5 +105,14 @@ public class IOManager {
             e.printStackTrace();
         }
         return str;
+    }
+
+    public static void invalidOptionMessage() {
+        printStream.println("Select a valid option!");
+    }
+
+    public static int getOption() {
+        Scanner inputScanner = new Scanner(System.in);
+        return inputScanner.nextInt();
     }
 }

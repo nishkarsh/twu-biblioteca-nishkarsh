@@ -7,7 +7,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
 
-        IOManager.welcomeMessage(System.out);
+        IOManager.welcomeMessage();
 
         Book headFirstJava = new Book("Head First Java", "Bert Bates, Kathy Sierra", "January 1, 2004");
         Book myStory = new Book("My Story", "Nishkarsh Sharma", "January 30, 2006");
@@ -37,19 +37,18 @@ public class BibliotecaApp {
         menuItemsMap.put(4, new ListMenuItem(movieManager));
         menuItemsMap.put(5, new CheckoutMenuItem(movieManager));
         menuItemsMap.put(6, new ReturnMenuItem(movieManager));
-        menuItemsMap.put(7, new UserInformation());
+        menuItemsMap.put(7, new UserInformationMenuItem());
         menuItemsMap.put(8, new QuitMenuItem());
         MenuItemsMap itemsMap = new MenuItemsMap(menuItemsMap);
 
-        Scanner inputScanner = new Scanner(System.in);
 
         while(true) {
             IOManager.displayMenu();
-            int option = inputScanner.nextInt();
+            int option = IOManager.getOption();
             if(itemsMap.isValid(option))
                 itemsMap.getMenuItem(option).select();
             else
-                System.out.println("Select a valid option!");
+                IOManager.invalidOptionMessage();
         }
     }
 }

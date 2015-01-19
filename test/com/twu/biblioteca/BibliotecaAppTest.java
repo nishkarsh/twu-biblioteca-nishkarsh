@@ -12,7 +12,8 @@ public class BibliotecaAppTest {
     @Test
     public void testWelcomeMessage() {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        IOManager.welcomeMessage(new PrintStream(byteArrayOutputStream));
+        IOManager.setPrintStream(new PrintStream(byteArrayOutputStream));
+        IOManager.welcomeMessage();
         assertEquals("Welcome to Biblioteca!\n", byteArrayOutputStream.toString());
     }
 

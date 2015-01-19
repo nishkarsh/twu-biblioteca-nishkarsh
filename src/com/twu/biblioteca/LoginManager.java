@@ -18,14 +18,19 @@ public class LoginManager {
         return userLogin();
     }
 
-    private static boolean userLogin() {
+    public static boolean userLogin() {
         String libraryNumber = IOManager.getLibraryNumber();
         String password = IOManager.getPassword();
 
-        boolean auth = users.containsKey(libraryNumber) && users.get(libraryNumber).getPassword().equals(password);
+        boolean auth = isValid(libraryNumber, password);
         IOManager.displayLoginMessage(auth);
         currentUser = auth ? users.get(libraryNumber) : null;
+
         return auth;
+    }
+
+    private static boolean isValid(String libraryNumber, String password) {
+        return users.containsKey(libraryNumber) && users.get(libraryNumber).getPassword().equals(password);
     }
 
     public static User getCurrentUser() {

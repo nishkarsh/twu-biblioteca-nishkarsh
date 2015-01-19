@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class UserInformation extends MenuItem{
+public class UserInformationMenuItem extends MenuItem{
     @Override
     public void select() {
         if(!LoginManager.validateSession())

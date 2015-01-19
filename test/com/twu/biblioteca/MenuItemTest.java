@@ -2,18 +2,24 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+
+
+@PrepareForTest(LoginManager.class)
+@RunWith(PowerMockRunner.class)
 
 public class MenuItemTest {
 
@@ -24,26 +30,15 @@ public class MenuItemTest {
 
     @Before
     public void setUp() {
+        PowerMockito.mockStatic(LoginManager.class);
+        PowerMockito.when(LoginManager.validateSession()).thenReturn(true);
+
         Book headFirstJava = new Book("Head First Java", "Bert Bates, Kathy Sierra", "January 1, 2004");
         Book myStory = new Book("My Story", "Nishkarsh Sharma", "January 30, 2006");
         HashMap<Item, Boolean> bookList= new HashMap<Item, Boolean>();
         bookList.put(headFirstJava, true);
         bookList.put(myStory, true);
         bookManager = new BookManager(bookList);
-
-        Movie tpoh = new Movie("The Pursuit of HappYness", "2006", "Gabriele Muccino", "7.9");
-        Movie castAway = new Movie("Cast Away", "2000", "Robert Zemeckis", "Unrated");
-        HashMap<Item, Boolean> movieList= new HashMap<Item, Boolean>();
-        movieList.put(tpoh, true);
-        movieList.put(castAway, true);
-        movieManager = new MovieManager(movieList);
-
-        User nishkarsh = new User("537-1253", "something", "Nishkarsh Sharma", "nishkarsh4@gmail.com", "9545655244");
-        User amit = new User("123-4567", "everything", "Amit Singh", "amit55@gmail.com", "9123456775");
-        HashMap<String, User> userList = new HashMap<String, User>();
-        userList.put(nishkarsh.getLibraryNumber(), nishkarsh);
-        userList.put(amit.getLibraryNumber(), amit);
-        LoginManager.initialize(userList);
 
         HashMap<Integer, MenuItem> menuItemsMap = new HashMap<Integer, MenuItem>();
         menuItemsMap.put(1, new ListMenuItem(bookManager));
@@ -52,7 +47,8 @@ public class MenuItemTest {
         menuItemsMap.put(4, new ListMenuItem(movieManager));
         menuItemsMap.put(5, new CheckoutMenuItem(movieManager));
         menuItemsMap.put(6, new ReturnMenuItem(movieManager));
-        menuItemsMap.put(7, new QuitMenuItem());
+        menuItemsMap.put(7, new UserInformationMenuItem());
+        menuItemsMap.put(8, new QuitMenuItem());
         itemsMap = new MenuItemsMap(menuItemsMap);
 }
 
@@ -140,10 +136,9 @@ public class MenuItemTest {
     @Test
     public void testUserInformationMenuItem() {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        IOManager.setInputStream(new ByteArrayInputStream("537-1253".getBytes()));
         IOManager.setPrintStream(new PrintStream(outputStream));
-        itemsMap.getMenuItem(3).select();
-        IOManager.setInputStream(new ByteArrayInputStream("something".getBytes()));
-        assertTrue(outputStream.toString().contains("Nishkarsh Sharma"));
+        PowerMockito.when(LoginManager.getCurrentUser()).thenReturn(new User("123-4567","something","Nishkarsh Sharma", "nishkarsh4@gmail.com", "95445655244"));
+        itemsMap.getMenuItem(7).select();
+        assertTrue(outputStream.toString().contains("Nishkarsh"));
     }
 }
